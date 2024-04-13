@@ -1,8 +1,19 @@
-#canvas1
+*
 {
-    border: 5px solid black;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+canvas{
+    border: solid 1px black;
     position: absolute;
     top: 50%;
     left: 50%;
     translate: -50% -50%;
+    background: purple;
+}
+
+#enemySmall {
+    display: none;
 }
