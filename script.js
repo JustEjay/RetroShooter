@@ -2,13 +2,16 @@
 class Player {
     constructor(game) {
         this.game = game;
+
         this.width = 100;
         this.height = 100;
+
         this.speed = 5
         this.lives = 3;
         this.tracker = 0;
-
+        //player sprite
         this.image = document.getElementById("player");
+
         //set x and y position of player 
         this.x = this.game.width * .5 - this.width * .5
         this.y = this.game.height - this.height;
@@ -46,17 +49,17 @@ class Player {
             projectile.start(this.x + this.width * .5, this.y);
         }
     }
-    restart() {
 
-    }
 }
 
 class Projectile {
     constructor() {
         this.width = 4;
         this.height = 20;
+
         this.x = 0;
         this.y = 0;
+
         this.speed = 10;
         this.free = true;
     }
@@ -75,6 +78,7 @@ class Projectile {
             }
         }
     }
+    //start position of projectile
     start(x, y) {
         this.x = x - this.width * 0.5;
         this.y = y;
@@ -169,7 +173,7 @@ class Wave {
 
         this.x = this.game.width * 0.5 - this.width * 0.5;
         this.y = -this.height;
-
+        //wave will start going in random direction
         this.speedX = Math.random() < 0.5 ? -1 : 1;
         this.speedY = 0;
 
@@ -243,9 +247,10 @@ class Game {
         this.score = 0;
         this.gameOver = false;
 
-        //player Movement 
+
         //create array to store keys 
         this.keys = [];
+        //player Movement 
         window.addEventListener("keydown", e => {
             if (this.keys.indexOf(e.key) === -1) {
                 this.keys.push(e.key);
@@ -256,6 +261,7 @@ class Game {
 
             if (e.key === "r") {
                 if (this.gameOver) {
+                    //reload webpage
                     location.reload();
                 }
 
@@ -282,9 +288,13 @@ class Game {
             this.spriteUpdate = false;
             this.spriteTimer += deltaTime;
         }
+        //draw text on screen
         this.drawStatusText(context);
+        //draw player
         this.player.draw(context);
         this.player.update();
+
+
         this.projectilePool.forEach(projectile => {
             projectile.update();
             projectile.draw(context);
