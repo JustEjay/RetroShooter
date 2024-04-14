@@ -1,19 +1,29 @@
-*
-{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-canvas{
+body {
+    background-color: #333;
+}
+
+canvas {
     border: solid 1px black;
     position: absolute;
     top: 50%;
     left: 50%;
     translate: -50% -50%;
-    background: purple;
+    /* credit https://www.gamedevmarket.net/asset/pixelart-waterfalls-background */
+    background: url('https://cdn.gamedevmarket.net/wp-content/uploads/20191203171815/85281e34521c4dbe0a96a3f35ff798ca.gif');
+    background-size: cover;
+    background-position: center;
 }
 
 #enemySmall {
+    display: none;
+}
+
+#player {
     display: none;
 }
