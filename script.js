@@ -6,7 +6,7 @@ class Player {
         this.width = 100;
         this.height = 100;
 
-        this.speed = 5
+        this.speed = 5;
         this.lives = 3;
         this.tracker = 0;
         //player sprite
@@ -174,7 +174,8 @@ class Wave {
         this.x = this.game.width * 0.5 - this.width * 0.5;
         this.y = -this.height;
         //wave will start going in random direction
-        this.speedX = Math.random() < 0.5 ? -1 : 1;
+        //Increase enemy speed 
+        this.speedX = Math.random() < 0.5 ? -2 : 2;
         this.speedY = 0;
 
         this.enemeis = [];
@@ -185,7 +186,8 @@ class Wave {
     render(context) {
 
         if (this.y < 0) {
-            this.y += 5;
+            //controll enemy decent
+            this.y += 10;
         }
 
         this.speedY = 0;
@@ -213,6 +215,7 @@ class Wave {
             }
         }
     }
+
 }
 
 //Control game
@@ -375,7 +378,7 @@ class Game {
 
     //generate new wave columns and rows
     newWave() {
-        if (Math.random() < 0.5 && this.columns * this.enemySize < this.width * 0.8) {
+        if (Math.random() < 0.5 && this.columns * this.enemySize < this.width * 1.2) {
             this.columns++;
         }
         else if (this.rows * this.enemySize < this.height * 0.6) {
